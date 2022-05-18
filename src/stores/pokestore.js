@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 
 export const pokemon = writable([]);
-const path_url = "http://143.198.49.250:5050"
+const path_url = "https://pokedex.xdnpanel.com"
 const pokemonDetails = {};
 let loaded = false;
 const fetchPokemon = async () => {
