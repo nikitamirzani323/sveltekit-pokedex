@@ -1,3 +1,4 @@
+import { writable } from "svelte/store";
 export async function get({params}) {
     const url = `https://pokeapi.co/api/v2/pokemon?limit=150`;
     const res = await fetch(url)

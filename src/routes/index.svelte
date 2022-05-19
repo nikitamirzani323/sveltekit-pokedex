@@ -1,15 +1,26 @@
+<script context="module">
+    export const load = async ({ fetch }) => {
+        const res = await fetch("/api/pokemon")
+        const pokemon = await res.json();
+        return {
+            props: {
+                pokemon,
+            }
+        }
+    };
+</script>
 <script>
-    import { pokemon } from "../stores/pokestore";
+    
     import PokemanCard from "../components/pokemanCard.svelte";
-
+    export let pokemon
     let searchTerm = "";
     let filteredPokemon = [];
 
     $:{
         if(searchTerm){
-            filteredPokemon = $pokemon.filter(pokeman => pokeman.name.toLowerCase().includes(searchTerm))
+            filteredPokemon = pokemon.filter(pokeman => pokeman.name.toLowerCase().includes(searchTerm))
         }else{
-            filteredPokemon = [...$pokemon]
+            filteredPokemon = [...pokemon]
         }
     }
 </script>
